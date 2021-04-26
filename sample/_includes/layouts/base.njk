@@ -1,0 +1,29 @@
+---
+title: 'Hello World - this is my first article'
+desc: 'Meta Description'
+twitter: '@tpiros'
+name: 'Tamas Piros'
+---
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test</title>
+    {% set img %}
+    {% sscg overlayText = "Hello there" %}
+    {% endset %}
+
+    {% metagen name = name,
+    title = title,
+    desc = excerpt,
+    twitter_card_type = "summary_large_image",
+    url = page.url,
+    twitterHandle = twitter,
+    img = img %}
+  </head>
+
+  <body>
+    {{ content | safe }}
+  </body>
+</html>

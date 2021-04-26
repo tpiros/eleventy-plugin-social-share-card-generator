@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+{% set img %}
+{% sscg overlayText = "Hello there" %}
+{% endset %}
+<h1>Hello there!</h1>
+<p>If you have followed the README you should be able to see your social share card below. Also take a look at the <code>head</code> element of your HTML for a generated <code>og:image</code> meta element.</p>
+<img src={{img}} alt="Social Share Card Test Preview"/>
