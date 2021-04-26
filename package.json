@@ -13,5 +13,9 @@
   "author": "Tamas Piros",
   "email": "tamas@fullstacktraining.com",
   "url": "https://tpiros.dev",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tpiros/eleventy-plugin-social-share-card-generator.git"
+  }
 }

@@ -8,7 +8,7 @@ To enable the social share card generator to function propertly a Cloudinary acc
 
 ## Setup
 
-To install the plugin you need to run `npm i `.
+To install the plugin you need to run `npm i eleventy-plugin-social-share-card-generator`.
 
 ## Getting started
 
@@ -21,7 +21,7 @@ After uploading the file take a note of the [`public ID`](https://cloudinary.com
 Once you have done these steps, you can add the plugin to your `.eleventy.js` configuration file:
 
 ```javascript
-const socialShareCardGenerator = require('./lib.js');
+const socialShareCardGenerator = require('eleventy-plugin-social-share-card-generator/dist/lib');
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(socialShareCardGenerator, {
     cloudName: 'your-cloudinary-username',
@@ -72,7 +72,7 @@ For best results, you can automate the creation of a social share card for your 
 ```javascript
 // .eleventy.js
 const metagen = require('eleventy-plugin-metagen');
-const socialShareCardGenerator = require('./lib.js');
+const socialShareCardGenerator = require('eleventy-plugin-social-share-card-generator/dist/lib');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(metagen);
