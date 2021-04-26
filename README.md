@@ -31,6 +31,10 @@ module.exports = (eleventyConfig) => {
 };
 ```
 
+#### A note on font support
+
+Generally speaking, Cloudinary supports all of [Google's Fonts](https://support.cloudinary.com/hc/en-us/articles/203352832-What-is-the-list-of-supported-fonts-for-text-overlay-transformation-). However, there could be some fonts that are not supported - please make sure you test your social share card.
+
 ### Configuration
 
 There are a vast number of options that you can configure using the plugin - some configuration options can be done from `.eleventy.js` and some from the template files. Find a list of possible configuration options below:
@@ -49,6 +53,8 @@ There are a vast number of options that you can configure using the plugin - som
 | Text Position on Y axis  | `y`               |               | X    | X        | `number`  | `any`                                                                                              |
 | Overlay Text             | `overlayText`     | no default    |      | X        | `string`  | `any`                                                                                              |
 
+> Note that in the above table the `init` column refers to values that can be set via `.elevent.js` while the `template` column refers to values that can be set from the templating lenguage.
+
 > Note that the `overlayText` can only be set from the template.
 
 It is recommended that you setup the `cloudName` and `publicId` when initialising the plugin. To keep things consistent it's also recommended to setup most of these values at initialisation time, however you can keep some of the default values.
@@ -62,6 +68,18 @@ Using Nunjucks, you can set the `overlayText` and assign the value of the social
 ```twig
 {% set img %}
 {% sscg overlayText = "Hello there" %}
+{% endset %}
+
+<img src={img} alt="Social Share Card Test Preview" />
+```
+
+As you can see the plugin enables the usage of `sscg` in your template. Additional value can be set using `sscg`, for example:
+
+```twig
+{% set img %}
+{% sscg overlayText = "Hello there",
+fontFace = 'Sacramento',
+fontWeight = 'normal' %}
 {% endset %}
 
 <img src={img} alt="Social Share Card Test Preview" />
