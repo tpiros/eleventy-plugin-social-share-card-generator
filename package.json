@@ -5,11 +5,18 @@
   },
   "name": "eleventy-plugin-social-share-card-generator",
   "description": "This plugin helps you to build automatic social share cards for your 11ty project. The underlying functionality is enabled by Cloudinary, a cloud based image management, optimisation and transformation solution.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "eleventy",
+    "eleventy-plugin",
+    "11ty",
+    "social sharing",
+    "social share card",
+    "cloudinary"
+  ],
   "author": "Tamas Piros",
   "email": "tamas@fullstacktraining.com",
   "url": "https://tpiros.dev",
