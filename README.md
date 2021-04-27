@@ -12,28 +12,27 @@ To install the plugin you need to run `npm i eleventy-plugin-social-share-card-g
 
 ## Getting started
 
-The plugin will enable you to create social share cards in an automated way by overlaying text on a pre-defined background. That image needs to be [uploaded to Cloudinary](https://cloudinary.com/documentation/dam_upload_store_assets) first. The easiest way would be for you to login to your Cloudinary account, click the `Media Library` menu and drag your image for upload.
+The plugin will enable you to create social share cards in an automated way by overlaying text on a pre-defined background image. That image needs to be [uploaded to Cloudinary](https://cloudinary.com/documentation/dam_upload_store_assets) first. The easiest way would be for you to login to your Cloudinary account, click the `Media Library` menu and drag your image for upload. If you don't have a suitable background ready, you'd need to create one. Should you not have access to a tool like Photoshop you can use [an online editor such as Pixlr](https://pixlr.com).
+
+> If you'd like to learn how to create a social share background please consult [this article by Jason Lengstorf](https://www.learnwithjason.dev/blog/design-social-sharing-card)
 
 > Note that ideally a social share base image should be 1200 x 630 pixels in size.
 
 After uploading the file take a note of the [`public ID`](https://cloudinary.com/documentation/upload_images#public_id) (the unique identifier of the image in Cloudinary).
 
-Once you have done these steps, you can add the plugin to your `.eleventy.js` configuration file:
+Once you have done these steps, you can add the plugin to your `.eleventy.js` configuration file, making sure to update the `YOUR-CLOUDINARY-USERNAME` and `YOUR-PUBLIC-ID` values.
 
 ```javascript
 const socialShareCardGenerator = require('eleventy-plugin-social-share-card-generator/dist/lib');
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(socialShareCardGenerator, {
-    cloudName: 'your-cloudinary-username',
-    publicId: 'base-image',
-    fontSize: 80,
+    cloudName: 'YOUR-CLOUDINARY-USERNAME',
+    publicId: 'YOUR-PUBLIC-ID',
   });
 };
 ```
 
-#### A note on font support
-
-Generally speaking, Cloudinary supports all of [Google's Fonts](https://support.cloudinary.com/hc/en-us/articles/203352832-What-is-the-list-of-supported-fonts-for-text-overlay-transformation-). However, there could be some fonts that are not supported - please make sure you test your social share card.
+It is recommended that you setup the `cloudName` and `publicId` when initialising the plugin. To keep things consistent it's also recommended to setup most of these values at initialisation time, however you can keep some of the default values.
 
 ### Configuration
 
@@ -57,7 +56,11 @@ There are a vast number of options that you can configure using the plugin - som
 
 > Note that the `overlayText` can only be set from the template.
 
-It is recommended that you setup the `cloudName` and `publicId` when initialising the plugin. To keep things consistent it's also recommended to setup most of these values at initialisation time, however you can keep some of the default values.
+#### A note on font support
+
+Generally speaking, Cloudinary supports all of [Google's Fonts](https://support.cloudinary.com/hc/en-us/articles/203352832-What-is-the-list-of-supported-fonts-for-text-overlay-transformation-). However, there could be some fonts that are not supported - please make sure you test your social share card.
+
+## Overlays
 
 The options are created in a way that they can be overwritten after initalisation from the templating language as well (except for the `overlayText`).
 
